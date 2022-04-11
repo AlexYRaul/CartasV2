@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/CartasV2/app/src/main/res/layout/activity_aviso.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/CartasV2/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/CartasV2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/CartasV2/app/src/main/res/layout/activity_recuperar_pass.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/CartasV2/app/src/main/res/layout/activity_registro.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/Cartashumanidad/app/src/main/res/layout/activity_aviso.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/Cartashumanidad/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/ralonsoc/AndroidStudioProjects/Cartashumanidad/app/src/main/res/layout/activity_main.xml" value="0.20863616930312098" />
