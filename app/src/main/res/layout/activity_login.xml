@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".Login">
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="304dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/tvRecuperarContra"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/style_border_editext3"
+        android:backgroundTint="@color/LetraPrincipal"
+        android:fontFamily="@font/acme"
+        android:text="@string/Acceder"
+        android:textColor="@color/white"
+        android:textSize="34sp" />
+
+    <ImageView
+        android:id="@+id/imglogo"
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="339dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/imglogo"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/email"
+        android:textColor="@color/LetraPrincipal"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_below="@+id/tvEmail"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/style_border_editext"
+        android:ems="10"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:hint="example@example.es"
+        android:inputType="textPersonName"
+        android:textColor="@color/LetraSecundaria"
+        android:textColorHint="@color/LetraSecundaria"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="339dp"
+        android:layout_height="61dp"
+        android:layout_below="@+id/txtEmail"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/contrasena"
+        android:textColor="@color/LetraPrincipal"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="61dp"
+        android:layout_below="@+id/tvPassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/style_border_editext"
+        android:ems="10"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:inputType="textPassword"
+        android:textColor="@color/LetraSecundaria"
+        android:textSize="20sp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/tvRecuperarContra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPassword"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="sans-serif"
+        android:gravity="right|center_vertical"
+        android:onClick="RecuperarPassword"
+        android:text="@string/NoRecuerdas"
+        android:textColor="#54B0DC"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvNotRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:onClick="registrarme"
+        android:text="@string/NoTienesCuenta"
+        android:textColor="#54B0DC"
+        android:textSize="16sp" />
+
+</RelativeLayout>
