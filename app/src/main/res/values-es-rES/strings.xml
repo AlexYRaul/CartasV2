@@ -15,4 +15,7 @@
     <string name="EmailRecuperar">Introduce el email de la contraseña que quieres recuperar</string>
     <string name="Aceptar">Aceptar</string>
     <string name="Confirmar">Confirmar</string>
+    <string name="title_news">Noticias</string>
+    <string name="title_perfil">Perfil</string>
+    <string name="title_lobby">Partidas</string>
 </resources>

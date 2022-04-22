@@ -14,4 +14,8 @@
     <string name="EmailRecuperar">Enter the email of the password you want to recover</string>
     <string name="Aceptar">Agree</string>
     <string name="Confirmar">Confirm</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_news">News</string>
+    <string name="title_lobby">Lobby</string>
+    <string name="title_perfil">Profile</string>
 </resources>

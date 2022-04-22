@@ -24,4 +24,11 @@ public class Login extends AppCompatActivity {
         Intent i= new Intent(this,RecuperarPass.class);
         startActivity(i);
     }
+
+    //La dejo aqui hasta que hagamos lo de la autenticación y tal para hacer pruebas
+    public void Inicio (View view)
+    {
+        Intent i= new Intent(this,Inicio.class);
+        startActivity(i);
+    }
 }

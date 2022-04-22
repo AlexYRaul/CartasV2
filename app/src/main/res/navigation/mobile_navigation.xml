@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_new">
+
+    <fragment
+        android:id="@+id/navigation_new"
+        android:name="com.example.cartasvshumanidad.ui.news.NewsFragment"
+        android:label="@string/title_news"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/navigation_lobby"
+        android:name="com.example.cartasvshumanidad.ui.lobby.LobbyFragment"
+        android:label="@string/title_lobby"
+        tools:layout="@layout/fragment_lobby" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.cartasvshumanidad.ui.profile.ProfileFragment"
+        android:label="@string/title_perfil"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
