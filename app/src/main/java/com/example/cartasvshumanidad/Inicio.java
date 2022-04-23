@@ -30,7 +30,7 @@ public class Inicio extends AppCompatActivity {
                 R.id.navigation_new, R.id.navigation_lobby, R.id.navigation_profile)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_inicio);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 

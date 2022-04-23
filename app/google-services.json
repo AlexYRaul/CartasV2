@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "897203634789",
+    "project_id": "fir-auth-cb2df",
+    "storage_bucket": "fir-auth-cb2df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897203634789:android:76caacb6e9beb8369a7c8c",
+        "android_client_info": {
+          "package_name": "com.example.cartasvshumanidad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897203634789-8ke85pv6d1hitumtcfj1nbbd7g1gq2t3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD4zVuO6y59aT-red4EJQm90J4VsnDutY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897203634789-8ke85pv6d1hitumtcfj1nbbd7g1gq2t3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
