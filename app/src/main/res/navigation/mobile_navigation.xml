@@ -9,13 +9,21 @@
         android:id="@+id/navigation_new"
         android:name="com.example.cartasvshumanidad.ui.news.NewsFragment"
         android:label="@string/title_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_navigation_new_to_navigation_lobby"
+            app:destination="@id/navigation_lobby" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_lobby"
         android:name="com.example.cartasvshumanidad.ui.lobby.LobbyFragment"
         android:label="@string/title_lobby"
-        tools:layout="@layout/fragment_lobby" />
+        tools:layout="@layout/fragment_lobby" >
+        <action
+            android:id="@+id/action_navigation_lobby_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
