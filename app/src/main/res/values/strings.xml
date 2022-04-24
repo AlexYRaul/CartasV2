@@ -18,4 +18,7 @@
     <string name="title_news">News</string>
     <string name="title_lobby">Lobby</string>
     <string name="title_perfil">Profile</string>
+    <string name="CambiarNick">Change nickname</string>
+    <string name="BorrarPerfil">Delete profile</string>
+    <string name="CerrarSesión">Close session</string>
 </resources>

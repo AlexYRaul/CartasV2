@@ -18,4 +18,7 @@
     <string name="title_news">Noticias</string>
     <string name="title_perfil">Perfil</string>
     <string name="title_lobby">Partidas</string>
+    <string name="CambiarNick">Cambiar nick</string>
+    <string name="BorrarPerfil">Borrar perfil</string>
+    <string name="CerrarSesión">Cerrar sesión</string>
 </resources>
