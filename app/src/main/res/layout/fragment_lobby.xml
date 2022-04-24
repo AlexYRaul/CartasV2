@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,28 +8,22 @@
     tools:context=".ui.lobby.LobbyFragment">
 
     <TextView
-        android:id="@+id/text_dashboard"
+        android:id="@+id/tvPlaceholderLobby"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="494dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="¡Aquí se mostrarán las partidas en activo!"
+        android:textColor="@color/black"
+        android:textSize="48sp" />
 
-    <Button
-        android:id="@+id/button"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCrear2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.315"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="75dp"
+        app:srcCompat="@drawable/add" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
