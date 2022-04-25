@@ -31,7 +31,6 @@
                 android:layout_gravity="center|center_horizontal|center_vertical"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/style_border_editext"
-                android:backgroundTint="@color/letra1"
                 android:foregroundGravity="center_vertical|center|center_horizontal"
                 tools:src="@tools:sample/avatars" />
 
@@ -67,10 +66,12 @@
 
                 <TextView
                     android:id="@+id/tvCambiarNick"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_marginLeft="40dp"
                     android:layout_marginTop="50dp"
+                    android:layout_marginRight="40dp"
                     android:drawableLeft="@drawable/editing"
                     android:fontFamily="@font/acme"
                     android:gravity="center|center_horizontal|center_vertical"
@@ -81,10 +82,12 @@
 
                 <TextView
                     android:id="@+id/tvCerrarSesion"
-                    android:layout_width="350dp"
-                    android:layout_height="70dp"
+                    android:layout_width="265dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_marginLeft="40dp"
                     android:layout_marginTop="50dp"
+                    android:layout_marginRight="40dp"
                     android:drawableLeft="@drawable/exit"
                     android:fontFamily="@font/acme"
                     android:gravity="center|center_horizontal|center_vertical"
@@ -95,10 +98,12 @@
 
                 <TextView
                     android:id="@+id/tvBorrarCuenta"
-                    android:layout_width="350dp"
+                    android:layout_width="312dp"
                     android:layout_height="70dp"
                     android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="50dp"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/style_border_editext"
                     android:backgroundTint="#FF0000"
                     android:drawableLeft="@drawable/delete"
