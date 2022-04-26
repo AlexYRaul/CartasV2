@@ -50,6 +50,7 @@ public class RecuperarPass extends AppCompatActivity {
                 } else{
                     //Si la tarea no se ha finalizado con exito se mostrará el siguiente mensaje.
                     Toast.makeText(getApplicationContext(),"No se ha podido enviar el correo correctamente", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
 
             }
@@ -75,6 +76,7 @@ public class RecuperarPass extends AppCompatActivity {
                 } else {
                     //Si  la tarea no se ha realizado con exito mostrará el siguiente mensaje al usuario.
                     Toast.makeText(getApplicationContext(), "No se ha podido enviar el correo correctamente", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
