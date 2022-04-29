@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
     //La dejo aqui hasta que hagamos lo de la autenticación y tal para hacer pruebas
     public void Inicio (View view)
     {
-        Intent i= new Intent(this, Inicio.class);
+        Intent i= new Intent(this, Profile.class);
         startActivity(i);
     }
 
