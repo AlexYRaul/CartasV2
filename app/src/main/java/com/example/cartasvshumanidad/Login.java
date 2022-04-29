@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
                 if (task.isSuccessful()){
                     //En caso de no error invocamos el método inicio
 
-                    Intent intent = new Intent(Login.this, Inicio.class);
+                    Intent intent = new Intent(Login.this, Profile.class);
                     startActivity(intent);
                     //Finalizar Activity
                     finish();

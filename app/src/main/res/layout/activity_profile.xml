@@ -9,16 +9,15 @@
     tools:context=".Profile">
 
     <ScrollView
+        android:id="@+id/scrollProfile"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="643dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_marginEnd="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,4 +117,44 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_below="@id/scrollProfile"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/LetraPrincipal"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnNews"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/LetraPrincipal"
+            app:srcCompat="@drawable/world_news__1_" />
+
+        <ImageButton
+            android:id="@+id/btnLobby"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/LetraPrincipal"
+            app:srcCompat="@drawable/lobby" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/LetraPrincipal"
+            app:srcCompat="@drawable/user" />
+    </LinearLayout>
 </RelativeLayout>
