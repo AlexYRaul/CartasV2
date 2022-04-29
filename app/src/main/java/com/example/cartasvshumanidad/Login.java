@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -50,7 +49,7 @@ public class Login extends AppCompatActivity {
     //La dejo aqui hasta que hagamos lo de la autenticación y tal para hacer pruebas
     public void Inicio (View view)
     {
-        Intent i= new Intent(this,Inicio.class);
+        Intent i= new Intent(this, Inicio.class);
         startActivity(i);
     }
 

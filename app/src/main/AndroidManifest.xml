@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".News"
+            android:exported="false" />
+        <activity
+            android:name=".Lobby"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".Inicio"
-            android:exported="false"
-            android:label="@string/title_activity_inicio" />
+            android:exported="false" />
         <activity
             android:name=".RecuperarPass"
             android:exported="false" />
