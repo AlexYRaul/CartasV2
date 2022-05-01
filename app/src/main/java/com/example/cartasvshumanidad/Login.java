@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity {
     //La dejo aqui hasta que hagamos lo de la autenticación y tal para hacer pruebas
     public void Inicio (View view)
     {
-        Intent i= new Intent(this, Profile.class);
+        Intent i= new Intent(this, News.class);
         startActivity(i);
     }
 
@@ -89,5 +89,11 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    //Impido que el usuario pueda volver a la anterior Activity
+    @Override
+    public void onBackPressed() {
+
     }
 }

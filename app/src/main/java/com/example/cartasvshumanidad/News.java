@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.cartasvshumanidad.adapters.NoticiasAdapter;
 import com.example.cartasvshumanidad.models.Noticias;
@@ -42,5 +44,16 @@ public class News extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAdapter.stopListening();
+    }
+
+    public void profile(View view)
+    {
+        Intent i= new Intent(this,Profile.class);
+        startActivity(i);
+    }
+    public void lobby(View view)
+    {
+        Intent i= new Intent(this,Lobby.class);
+        startActivity(i);
     }
 }

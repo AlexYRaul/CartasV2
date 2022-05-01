@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/LetraPrincipal"
+                android:background="#6B4873"
                 app:srcCompat="@drawable/user" />
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
@@ -139,6 +139,7 @@
                     android:drawableLeft="@drawable/exit"
                     android:fontFamily="@font/acme"
                     android:gravity="center|center_horizontal|center_vertical"
+                    android:onClick="CerrarSesion"
                     android:text="@string/CerrarSesión"
                     android:textColor="@color/letra1"
                     android:textSize="24sp"

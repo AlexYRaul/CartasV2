@@ -24,4 +24,10 @@ public class Profile extends AppCompatActivity {
         Intent i= new Intent(this,Lobby.class);
         startActivity(i);
     }
+
+    public void CerrarSesion (View view)
+    {
+        Intent i= new Intent(this,Login.class);
+        startActivity(i);
+    }
 }
