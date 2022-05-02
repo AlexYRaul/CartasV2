@@ -37,7 +37,10 @@ public class NoticiasAdapter extends FirestoreRecyclerAdapter<Noticias, Noticias
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_noticia_single, parent,false);
         return new ViewHolder(v);
     }
-
+    /*
+    * En este metodo se declaran atributos de tipo TextView para relacionarlos
+    * con los respectivos Layout.
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView descripcion, fechaPublicacion, titulo;
         public ViewHolder(@NonNull View itemView) {
