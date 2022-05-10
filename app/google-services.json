@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "897203634789",
+    "firebase_url": "https://fir-auth-cb2df-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "fir-auth-cb2df",
     "storage_bucket": "fir-auth-cb2df.appspot.com"
   },
