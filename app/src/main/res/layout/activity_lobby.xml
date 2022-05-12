@@ -50,7 +50,22 @@
                 android:background="@color/LetraPrincipal"
                 android:onClick="profile"
                 app:srcCompat="@drawable/user" />
+
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbtnCrear"
+        android:layout_width="wrap_content"
+        android:layout_height="439dp"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="CrearPartida"
+        android:src="@drawable/add"
+        app:layout_constraintBottom_toTopOf="@+id/nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

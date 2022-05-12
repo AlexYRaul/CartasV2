@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="219dp"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_margin="2sp"
+        android:layout_marginStart="2sp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2sp"
+        android:layout_marginEnd="2sp"
+        android:layout_marginRight="2sp"
+        android:layout_marginBottom="2sp"
+        android:background="@drawable/style_border_editext"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="¿Estas seguro de querer crear una partida?"
+        android:textColor="@color/LetraSecundaria"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPopUpCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/style_border_editext"
+            android:backgroundTint="@color/LetraPrincipal"
+            android:fontFamily="@font/acme"
+            android:onClick="CrearPartida"
+            android:text="@string/cancelar"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnPopUpCrear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_weight="1"
+            android:background="@drawable/style_border_editext"
+            android:backgroundTint="@color/LetraPrincipal"
+            android:fontFamily="@font/acme"
+            android:onClick="CrearPartida"
+            android:text="@string/Crear"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
