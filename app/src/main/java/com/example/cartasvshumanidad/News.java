@@ -29,7 +29,7 @@ public class News extends AppCompatActivity {
         mRecycler = findViewById(R.id.recyclerViewSingle);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
         //En esta parte se accede a la tabla de Firebase
-        Query query = mFirestore.collection("Noticias");
+        Query query = mFirestore.collection("Noticias").orderBy("fechaPublicacion");
         //En esta parte se lanza la sentencia y se recuperan los datos almacenados en Firebase
         FirestoreRecyclerOptions<Noticias> firestoreRecyclerOptions =
                 new FirestoreRecyclerOptions.Builder<Noticias>().setQuery(query, Noticias.class).build();

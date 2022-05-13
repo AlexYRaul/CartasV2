@@ -59,7 +59,7 @@ public class Lobby extends AppCompatActivity {
             public void onClick(View v){
 
                 Intent intent = new Intent(Lobby.this, Juego.class);
-
+                startActivity(intent);
                 dialog.dismiss();
             }
         });
@@ -67,8 +67,6 @@ public class Lobby extends AppCompatActivity {
         this.cancel.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
-                Intent intent = new Intent(Lobby.this, Lobby.class);
 
                 dialog.dismiss();
             }

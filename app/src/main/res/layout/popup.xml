@@ -40,7 +40,6 @@
             android:background="@drawable/style_border_editext"
             android:backgroundTint="@color/LetraPrincipal"
             android:fontFamily="@font/acme"
-            android:onClick="CrearPartida"
             android:text="@string/cancelar"
             android:textColor="@color/white"
             android:textStyle="bold" />
