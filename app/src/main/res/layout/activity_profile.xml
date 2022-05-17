@@ -139,7 +139,6 @@
                     android:drawableLeft="@drawable/exit"
                     android:fontFamily="@font/acme"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:onClick="CerrarSesion"
                     android:text="@string/CerrarSesión"
                     android:textColor="@color/letra1"
                     android:textSize="24sp"
