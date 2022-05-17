@@ -33,6 +33,7 @@ public class Registro extends AppCompatActivity {
     private String nombreStr;
     private String emailStr;
     private String contrasenaStr;
+    private String tokenImagen = "853395d0-d34b-4e81-ae79-74ad4964b1d6";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,7 @@ public class Registro extends AppCompatActivity {
                     Map<String, Object> map = new HashMap<>();
                     map.put("nombre",nombreStr);
                     map.put("email",emailStr);
+                    map.put("img", tokenImagen);
                     String id= mAuth.getCurrentUser().getUid();
                     mDatabase.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
