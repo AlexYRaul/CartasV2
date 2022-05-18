@@ -33,6 +33,8 @@ public class Registro extends AppCompatActivity {
     private String nombreStr;
     private String emailStr;
     private String contrasenaStr;
+
+    //Añado al usuario su imagen predeterminada
     private String tokenImagen = "853395d0-d34b-4e81-ae79-74ad4964b1d6";
 
     @Override
