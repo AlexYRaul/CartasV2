@@ -14,7 +14,7 @@
     <string name="EmailRecuperar">Enter the email of the password you want to recover</string>
     <string name="Aceptar">Agree</string>
     <string name="Confirmar">Confirm</string>
-    <string name="title_activity_inicio">Inicio</string>
+    <string name="title_activity_Lobby">Start</string>
     <string name="title_news">News</string>
     <string name="title_lobby">Lobby</string>
     <string name="title_perfil">Profile</string>
@@ -22,4 +22,5 @@
     <string name="BorrarPerfil">Delete profile</string>
     <string name="CerrarSesión">Close session</string>
     <string name="Crear">Create</string>
+    <string name="BorrarCuenta">Delete accounts</string>
 </resources>

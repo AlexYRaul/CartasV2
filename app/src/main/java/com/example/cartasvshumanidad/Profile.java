@@ -95,6 +95,8 @@ public class Profile extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_IMAGE_GALLERY);
     }
 
+
+
     public void news (View view)
     {
         Intent i= new Intent(this,News.class);
@@ -106,7 +108,10 @@ public class Profile extends AppCompatActivity {
         startActivity(i);
     }
 
-
-
+    public void borrarPerfil(View view)
+    {
+        Intent i= new Intent(this,BorrarPerfilUsuario.class);
+        startActivity(i);
+    }
 
 }

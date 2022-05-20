@@ -22,4 +22,6 @@
     <string name="BorrarPerfil">Borrar perfil</string>
     <string name="CerrarSesión">Cerrar sesión</string>
     <string name="Crear">Crear</string>
+    <string name="BorrarCuenta">Borrar cuenta</string>
+    <string name="title_activity_Lobby">Inicio</string>
 </resources>

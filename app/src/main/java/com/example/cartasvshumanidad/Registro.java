@@ -37,6 +37,7 @@ public class Registro extends AppCompatActivity {
     //Añado al usuario su imagen predeterminada
     private String tokenImagen = "853395d0-d34b-4e81-ae79-74ad4964b1d6";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +105,6 @@ public class Registro extends AppCompatActivity {
                             else{
                                 Toast.makeText(Registro.this, "No se han podido crear los datos correctamente", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
                 }

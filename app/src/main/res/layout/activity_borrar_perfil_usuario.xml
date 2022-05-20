@@ -1,0 +1,51 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".BorrarPerfilUsuario">
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:hint="Email"
+        android:textColor="@color/LetraSecundaria"
+        android:textColorHint="@color/LetraSecundaria"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/logpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="161dp"
+        android:ems="10"
+        android:hint="Password"
+        android:textColor="@color/LetraSecundaria"
+        android:textColorHint="@color/LetraSecundaria"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="227dp"
+        android:background="@drawable/style_border_editext3"
+        android:backgroundTint="@color/LetraPrincipal"
+        android:text="Submit Here"
+        android:textSize="15dp" />
+
+</RelativeLayout>

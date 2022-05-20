@@ -70,6 +70,7 @@
         android:gravity="center|center_horizontal|center_vertical"
         android:hint="example@example.es"
         android:inputType="textPersonName"
+        android:onClick="acceso"
         android:textColor="@color/LetraSecundaria"
         android:textColorHint="@color/LetraSecundaria"
         android:textSize="20sp" />
