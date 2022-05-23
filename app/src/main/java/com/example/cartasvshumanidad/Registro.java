@@ -35,7 +35,7 @@ public class Registro extends AppCompatActivity {
     private String contrasenaStr;
 
     //Añado al usuario su imagen predeterminada
-    private String tokenImagen = "853395d0-d34b-4e81-ae79-74ad4964b1d6";
+    private String tokenImagen = "https://firebasestorage.googleapis.com/v0/b/fir-auth-cb2df.appspot.com/o/perfilPredeterminado.PNG?alt=media&token=853395d0-d34b-4e81-ae79-74ad4964b1d6";
 
 
     @Override

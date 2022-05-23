@@ -21,7 +21,7 @@
         android:background="@drawable/style_border_editext3"
         android:backgroundTint="@color/LetraPrincipal"
         android:fontFamily="@font/acme"
-        android:onClick="Inicio"
+        android:onClick="acceso"
         android:text="@string/Acceder"
         android:textColor="@color/white"
         android:textSize="34sp" />
@@ -68,7 +68,6 @@
         android:ems="10"
         android:fontFamily="@font/acme"
         android:gravity="center|center_horizontal|center_vertical"
-        android:hint="example@example.es"
         android:inputType="textPersonName"
         android:onClick="acceso"
         android:textColor="@color/LetraSecundaria"

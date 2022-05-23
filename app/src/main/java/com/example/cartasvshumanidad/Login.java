@@ -47,9 +47,11 @@ public class Login extends AppCompatActivity {
     }
 
     //La dejo aqui hasta que hagamos lo de la autenticación y tal para hacer pruebas
-    public void Inicio (View view)
+    public void pruebas (View view)
     {
         Intent i= new Intent(this, News.class);
+        i.putExtra("correo", strcorreo);
+        i.putExtra("pass", strpassword);
         startActivity(i);
     }
 
@@ -77,7 +79,9 @@ public class Login extends AppCompatActivity {
                 if (task.isSuccessful()){
                     //En caso de no error invocamos el método inicio
 
-                    Intent intent = new Intent(Login.this, Profile.class);
+                    Intent intent = new Intent(Login.this, News.class);
+                    intent.putExtra("correo", strcorreo);
+                    intent.putExtra("pass", strpassword);
                     startActivity(intent);
                     //Finalizar Activity
                     finish();

@@ -157,7 +157,6 @@
                     android:drawableLeft="@drawable/delete"
                     android:fontFamily="@font/acme"
                     android:gravity="center|center_horizontal|center_vertical"
-                    android:onClick="borrarPerfil"
                     android:text="@string/BorrarPerfil"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"

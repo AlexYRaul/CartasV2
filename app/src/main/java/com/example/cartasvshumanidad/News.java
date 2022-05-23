@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.cartasvshumanidad.adapters.NoticiasAdapter;
 import com.example.cartasvshumanidad.models.Noticias;
@@ -19,10 +21,18 @@ public class News extends AppCompatActivity {
     RecyclerView mRecycler;
     NoticiasAdapter mAdapter;
     FirebaseFirestore mFirestore;
+    Bundle datos;
+    String strcorreo;
+    String strpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
+
+        datos=getIntent().getExtras();
+        strcorreo=datos.getString("correo");
+        strpassword=datos.getString("pass");
+
         //Creamos la instancia al Firestore de la base de daos de Firebase
         mFirestore = FirebaseFirestore.getInstance();
         //Relacionamos el atributo mrecycler con la activity layout done se crea el recycler View con el XML
@@ -56,6 +66,8 @@ public class News extends AppCompatActivity {
     public void profile(View view)
     {
         Intent i= new Intent(this,Profile.class);
+        i.putExtra("correo", strcorreo);
+        i.putExtra("pass", strpassword);
         startActivity(i);
     }
     //Este metodo sirve para ir a la la activity Profile
@@ -110,4 +122,8 @@ public class News extends AppCompatActivity {
                 ", mFirestore=" + mFirestore +
                 '}';
     }
+
+
+
+
 }
