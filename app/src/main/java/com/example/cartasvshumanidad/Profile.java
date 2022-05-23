@@ -35,6 +35,7 @@ public class Profile extends AppCompatActivity {
     Bundle datos;
     String correo;
     String password;
+    TextView tvCorreo;
 
     //Creo esta variable para comprobrar con ella si el usuario ha dado permisos para acceder a la galeria
     private static final int REQUEST_PERMISSION_CODE = 100;
@@ -74,6 +75,10 @@ public class Profile extends AppCompatActivity {
             }
         });
 
+
+
+        tvCorreo = findViewById(R.id.tvCorreo);
+        tvCorreo.setText(correo);
 
         //Sincronizo la variable con la imagen del usuario en profile
         profile = findViewById(R.id.imgProfile);
