@@ -24,4 +24,6 @@
     <string name="Crear">Crear</string>
     <string name="BorrarCuenta">Borrar cuenta</string>
     <string name="title_activity_Lobby">Inicio</string>
+    <string name="Si">Si</string>
+    <string name="No">No</string>
 </resources>

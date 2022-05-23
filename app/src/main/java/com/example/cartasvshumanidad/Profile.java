@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -93,7 +94,6 @@ public class Profile extends AppCompatActivity {
             }
         });
     }
-
 
     //Recogo la imagen de la galeria y la coloco en profile
     @Override
