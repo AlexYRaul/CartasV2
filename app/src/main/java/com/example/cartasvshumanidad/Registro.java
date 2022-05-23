@@ -26,6 +26,7 @@ public class Registro extends AppCompatActivity {
     private EditText nombre;
     private EditText email;
     private EditText contrsena;
+    private EditText contrsena2;
     private FirebaseAuth mAuth;
     DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
@@ -33,6 +34,7 @@ public class Registro extends AppCompatActivity {
     private String nombreStr;
     private String emailStr;
     private String contrasenaStr;
+    private String contrasena2Str;
 
     //Añado al usuario su imagen predeterminada
     private String tokenImagen = "https://firebasestorage.googleapis.com/v0/b/fir-auth-cb2df.appspot.com/o/perfilPredeterminado.PNG?alt=media&token=853395d0-d34b-4e81-ae79-74ad4964b1d6";
@@ -49,6 +51,7 @@ public class Registro extends AppCompatActivity {
         nombre=(EditText) findViewById(R.id.txtUsuario);
         email=(EditText) findViewById(R.id.txtRegisterEmail);
         contrsena=(EditText)findViewById(R.id.txtRegisterPassword);
+        contrsena2 = (EditText)findViewById(R.id.txtPassword2);
         registrar = (Button) findViewById(R.id.btnRegistrar);
 
         //Asigno al botón registrar el siguiente método en el que recopilamos los datos introducidos por el usuario y en caso de que no haya problemas invvocamos al método registeruser
@@ -59,16 +62,23 @@ public class Registro extends AppCompatActivity {
                 nombreStr = nombre.getText().toString();
                 emailStr = email.getText().toString();
                 contrasenaStr = contrsena.getText().toString();
+                contrasena2Str = contrsena2.getText().toString();
                 //hacemos un if para que en caso de que los campos esten completos se lanze el metodo registeruser
-                if (!nombreStr.isEmpty() && !emailStr.isEmpty() && !contrasenaStr.isEmpty()){
+                if (!nombreStr.isEmpty() && !emailStr.isEmpty() && !contrasenaStr.isEmpty() && !contrasena2Str.isEmpty()){
 
-                    if(contrasenaStr.length()>=6){
-                        registerUser();
+                    if(contrasenaStr.equals(contrasena2Str)){
+                        if(contrasenaStr.length()>=6){
+                            registerUser();
+                        }
+                        //un else para que cuando la contraseña no tenga mas de 6 caracteres salte un toast
+                        else{
+                            Toast.makeText(Registro.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                    //un else para que cuando la contraseña no tenga mas de 6 caracteres salte un toast
                     else{
-                        Toast.makeText(Registro.this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registro.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                     }
+
                 }
                 // salta un toast si los campos no estan completos
                 else {
