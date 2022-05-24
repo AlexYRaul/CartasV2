@@ -74,6 +74,8 @@ public class News extends AppCompatActivity {
     public void lobby(View view)
     {
         Intent i= new Intent(this,Lobby.class);
+        i.putExtra("correo", strcorreo);
+        i.putExtra("pass", strpassword);
         startActivity(i);
     }
 

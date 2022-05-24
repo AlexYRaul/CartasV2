@@ -31,6 +31,12 @@ import com.google.firebase.database.DatabaseReference;
 public class Profile extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private TextView tvPregunta;
+    private Button aceptar;
+    private Button cancel;
+
     ImageView profile;
     Bundle datos;
     String correo;
@@ -57,13 +63,13 @@ public class Profile extends AppCompatActivity {
         correo=datos.getString("correo");
         password=datos.getString("pass");
 
-        TextView submit = findViewById(R.id.tvBorrarCuenta);
+        /**TextView submit = findViewById(R.id.tvBorrarCuenta);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deleteuser(correo, password);
             }
-        });
+        });**/
 
         //Cierro la sesión del usuario
         mButtonSignOut.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +145,8 @@ public class Profile extends AppCompatActivity {
     public void news (View view)
     {
         Intent i= new Intent(this,News.class);
+        i.putExtra("correo", correo);
+        i.putExtra("pass", password);
         startActivity(i);
     }
 
@@ -146,16 +154,53 @@ public class Profile extends AppCompatActivity {
     public void Lobby(View view)
     {
         Intent i= new Intent(this,Lobby.class);
+        i.putExtra("correo", correo);
+        i.putExtra("pass", password);
         startActivity(i);
     }
 
-    public void borrarPerfil(View view)
+    /**public void borrarPerfil(View view)
     {
         Intent i= new Intent(this,BorrarPerfilUsuario.class);
         startActivity(i);
+    }**/
+
+
+    //Creo un dialog para llamar al método que hace aparecer el popup de confirmación
+    public void borrarUsuario(View view)
+    {
+        createNewContactDialog();
     }
 
+    //LLamo al popup de confirmación para borrar la cuenta y le asigno la funcionalidad a los botones del mismo
+    public void createNewContactDialog(){
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.popup_borrar_cuenta, null);
+        this.tvPregunta=(TextView) contactPopupView.findViewById(R.id.tvPregunta);
+        this.aceptar=(Button) contactPopupView.findViewById(R.id.btnPopUpBorrarCuentaSi);
+        this.cancel=(Button) contactPopupView.findViewById(R.id.btnPopUpBorrarCuentaNo);
 
+        this.dialogBuilder.setView(contactPopupView);
+        this.dialog = dialogBuilder.create();
+        dialog.show();
+
+        this.aceptar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                deleteuser(correo, password);
+                dialog.dismiss();
+            }
+        });
+
+        this.cancel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                dialog.dismiss();
+            }
+        });
+    }
 
     private void deleteuser(String email, String password) {
 

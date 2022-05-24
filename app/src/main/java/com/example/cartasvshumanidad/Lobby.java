@@ -16,25 +16,37 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class Lobby extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lobby);
-    }
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private TextView tvPregunta;
     private Button aceptar;
     private Button cancel;
+    private String correo;
+    private String pass;
+    Bundle datos;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lobby);
+
+        datos=getIntent().getExtras();
+        correo=datos.getString("correo");
+        pass=datos.getString("pass");
+    }
+
 
     public void news (View view)
     {
         Intent i= new Intent(this,News.class);
+        i.putExtra("correo", correo);
+        i.putExtra("pass", pass);
         startActivity(i);
     }
     public void profile(View view)
     {
         Intent i= new Intent(this,Profile.class);
+        i.putExtra("correo", correo);
+        i.putExtra("pass", pass);
         startActivity(i);
     }
 

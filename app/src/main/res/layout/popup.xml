@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -18,6 +17,7 @@
         android:layout_marginRight="2sp"
         android:layout_marginBottom="2sp"
         android:background="@drawable/style_border_editext"
+        android:backgroundTint="@color/white"
         android:fontFamily="@font/acme"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="¿Estas seguro de querer crear una partida?"
@@ -27,7 +27,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
