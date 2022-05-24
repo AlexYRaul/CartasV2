@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:background="@color/LetraPrincipal"
                 android:onClick="profile"
-                app:srcCompat="@drawable/user" />
+                app:srcCompat="@drawable/profile" />
 
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
@@ -74,8 +74,10 @@
             android:text="@string/Noticia"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="72dp"
+            tools:layout_editor_absoluteY="18dp" />
 
 
     </androidx.appcompat.widget.Toolbar>
