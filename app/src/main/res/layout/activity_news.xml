@@ -53,15 +53,39 @@
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/LetraPrincipal"
+        android:layout_marginBottom="8dp"
+
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/custom_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/Noticia"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="662dp"
+        android:layout_width="417dp"
+        android:layout_height="566dp"
         android:background="@color/white"
         android:orientation="vertical"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toTopOf="@+id/nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSingle"
@@ -72,7 +96,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:background="@color/white"
@@ -80,6 +104,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </LinearLayout>
 

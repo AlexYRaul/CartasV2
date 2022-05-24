@@ -25,4 +25,5 @@
     <string name="BorrarCuenta">Delete accounts</string>
     <string name="Si">Yes</string>
     <string name="No">No</string>
+    <string name="Noticia">News</string>
 </resources>
