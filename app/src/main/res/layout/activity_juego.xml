@@ -1,9 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Juego">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgFondo"
+        android:layout_width="499dp"
+        android:layout_height="277dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="64dp"
+        app:srcCompat="@drawable/logofondo" />
+
+    <ImageView
+        android:id="@+id/imgTiempo"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="635dp"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/reloj_de_arena" />
+
+    <TextView
+        android:id="@+id/tvTiempo"
+        android:layout_width="60dp"
+        android:layout_height="37dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/imgTiempo"
+        android:fontFamily="@font/acme"
+        android:gravity="center_vertical"
+        android:hint="12"
+        android:textColor="@color/LetraSecundaria"
+        android:textColorHint="@color/LetraSecundaria"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/tvFrase"
+        android:layout_width="128dp"
+        android:layout_height="186dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="300dp"
+        android:background="@drawable/style_border_editext"
+        android:backgroundTint="#222121"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="placeholder"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvCarta1"
+        android:layout_width="105dp"
+        android:layout_height="135dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="86dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/style_border_editext"
+        android:backgroundTint="#A6A6A6"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="placeholder"
+        android:textColor="#000000"
+        android:textColorHint="#000000" />
+
+    <TextView
+        android:id="@+id/tvCarta2"
+        android:layout_width="105dp"
+        android:layout_height="135dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/tvCarta1"
+        android:background="@drawable/style_border_editext"
+        android:backgroundTint="#A6A6A6"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="placeholder"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvCarta3"
+        android:layout_width="105dp"
+        android:layout_height="135dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/tvCarta2"
+        android:background="@drawable/style_border_editext"
+        android:backgroundTint="#A6A6A6"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="placeholder"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvCarta4"
+        android:layout_width="105dp"
+        android:layout_height="135dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/tvCarta3"
+        android:background="@drawable/style_border_editext"
+        android:backgroundTint="#A6A6A6"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="placeholder"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/tvCarta5"
+        android:layout_width="105dp"
+        android:layout_height="135sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/tvCarta4"
+        android:background="@drawable/style_border_editext"
+        android:backgroundTint="#A6A6A6"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="placeholder"
+        android:textColor="@color/black" />
+</RelativeLayout>
