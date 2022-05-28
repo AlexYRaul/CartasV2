@@ -56,35 +56,32 @@ public class Lobby extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lobby);
 
-        datos=getIntent().getExtras();
-        correo=datos.getString("correo");
-        pass=datos.getString("pass");
+        datos = getIntent().getExtras();
+        correo = datos.getString("correo");
+        pass = datos.getString("pass");
 
-        crear=(Button) findViewById(R.id.fbtnCrear);
+        crear = (Button) findViewById(R.id.fbtnCrear);
 
         dataBase = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         playerName = preferences.getString("playerName", "");
-        roomName=playerName;
+        roomName = playerName;
 
-        listView=findViewById(R.id.lvListaPartidas);
-        roomsList=new ArrayList<>();
+        listView = findViewById(R.id.lvListaPartidas);
+        roomsList = new ArrayList<>();
 
 
-        listView.setOnClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                roomName=roomsList.get(position);
-                roomRef=dataBase.getReference("rooms/"+roomName+"/player2");
+                roomName = roomsList.get(position);
+                roomRef = dataBase.getReference("rooms/" + roomName + "/player2");
                 addRoomEventListener();
                 roomRef.setValue(playerName);
             }
         });
         addRoomsEventListener();
-    }
-
-
-
+}
 
 
     public void news (View view)
@@ -179,7 +176,7 @@ public class Lobby extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        })
+        });
     }
 
 }
