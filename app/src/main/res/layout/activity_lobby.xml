@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/actLobby"
@@ -15,10 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:background="@color/LetraPrincipal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:background="@color/LetraPrincipal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,18 +51,30 @@
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
+    <ListView
+        android:id="@+id/lvListaPartidas"
+        android:layout_width="match_parent"
+        android:layout_height="655dp"
+        android:layout_above="@+id/nav"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="16dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fbtnCrear"
         android:layout_width="wrap_content"
         android:layout_height="439dp"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
+        android:layout_above="@+id/nav"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="24dp"
         android:onClick="CrearPartida"
-        android:src="@drawable/add"
-        app:layout_constraintBottom_toTopOf="@+id/nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:src="@drawable/add" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
