@@ -39,7 +39,6 @@ public class Lobby extends AppCompatActivity {
     private String pass;
     Bundle datos;
 
-    private Button crear;
 
 
     private ListView listView;
@@ -59,8 +58,6 @@ public class Lobby extends AppCompatActivity {
         datos = getIntent().getExtras();
         correo = datos.getString("correo");
         pass = datos.getString("pass");
-
-        crear = (Button) findViewById(R.id.fbtnCrear);
 
         dataBase = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
@@ -119,7 +116,7 @@ public class Lobby extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Toast.makeText(Lobby.this, "Creando partida..", Toast.LENGTH_SHORT).show();
-                crear.setEnabled(false);
+                //crear.setEnabled(false);
                 roomName = playerName;
                 roomRef=dataBase.getReference("rooms/"+roomName+"/player1");
                 addRoomEventListener();
@@ -143,7 +140,7 @@ public class Lobby extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Toast.makeText(Lobby.this, "Uniendose a una partida..", Toast.LENGTH_SHORT).show();
-                crear.setEnabled(true);
+                //crear.setEnabled(true);
                 Intent i= new Intent(getApplicationContext(),Juego.class);
                 i.putExtra("roomName", roomName);
                 startActivity(i);
@@ -151,7 +148,7 @@ public class Lobby extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(Lobby.this, "Uniendose a una partida..", Toast.LENGTH_SHORT).show();
-                crear.setEnabled(true);
+               // crear.setEnabled(true);
                 Toast.makeText(Lobby.this, "ERROR!", Toast.LENGTH_SHORT).show();
             }
         });

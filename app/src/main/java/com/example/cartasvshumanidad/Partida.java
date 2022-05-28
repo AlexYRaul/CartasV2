@@ -1,9 +1,15 @@
 package com.example.cartasvshumanidad;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Partida {
 
     private Integer idPartida;
     private Usuario usuario;
+
+    FirebaseDatabase dataBase;
+    DatabaseReference roomRef;
 
     public Partida() {
     }
