@@ -80,7 +80,6 @@ public class Lobby extends AppCompatActivity {
         addRoomsEventListener();
 }
 
-
     public void news (View view)
     {
         Intent i= new Intent(this,News.class);
