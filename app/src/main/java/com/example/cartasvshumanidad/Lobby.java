@@ -43,8 +43,8 @@ public class Lobby extends AppCompatActivity {
 
     private ListView listView;
     List<String> roomsList;
-    String playerName="pruebarda1";
-    String roomName="Pruebaca1";
+    String playerName="";
+    String roomName="";
     FirebaseDatabase dataBase;
     DatabaseReference roomRef;
     DatabaseReference roomsRef;
