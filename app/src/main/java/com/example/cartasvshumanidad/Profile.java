@@ -42,6 +42,7 @@ public class Profile extends AppCompatActivity {
     String correo;
     String password;
     TextView tvCorreo;
+    TextView tvNick;
     String playerName;
 
     //Creo esta variable para comprobrar con ella si el usuario ha dado permisos para acceder a la galeria
@@ -65,13 +66,6 @@ public class Profile extends AppCompatActivity {
         playerName=datos.getString("nick");
         password=datos.getString("pass");
 
-        /**TextView submit = findViewById(R.id.tvBorrarCuenta);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteuser(correo, password);
-            }
-        });**/
 
         //Cierro la sesión del usuario
         mButtonSignOut.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +81,10 @@ public class Profile extends AppCompatActivity {
 
         tvCorreo = findViewById(R.id.tvCorreo);
         tvCorreo.setText(correo);
+
+        tvNick = findViewById(R.id.tvNick);
+        tvNick.setText(playerName);
+        
 
         //Sincronizo la variable con la imagen del usuario en profile
         profile = findViewById(R.id.imgProfile);
