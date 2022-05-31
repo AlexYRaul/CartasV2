@@ -42,6 +42,7 @@ public class Profile extends AppCompatActivity {
     String correo;
     String password;
     TextView tvCorreo;
+    String playerName;
 
     //Creo esta variable para comprobrar con ella si el usuario ha dado permisos para acceder a la galeria
     private static final int REQUEST_PERMISSION_CODE = 100;
@@ -61,6 +62,7 @@ public class Profile extends AppCompatActivity {
 
         datos=getIntent().getExtras();
         correo=datos.getString("correo");
+        playerName=datos.getString("nick");
         password=datos.getString("pass");
 
         /**TextView submit = findViewById(R.id.tvBorrarCuenta);
@@ -146,6 +148,7 @@ public class Profile extends AppCompatActivity {
     {
         Intent i= new Intent(this,News.class);
         i.putExtra("correo", correo);
+        i.putExtra("nick", playerName);
         i.putExtra("pass", password);
         startActivity(i);
     }
@@ -155,6 +158,7 @@ public class Profile extends AppCompatActivity {
     {
         Intent i= new Intent(this,Lobby.class);
         i.putExtra("correo", correo);
+        i.putExtra("nick", playerName);
         i.putExtra("pass", password);
         startActivity(i);
     }

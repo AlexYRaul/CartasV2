@@ -3,9 +3,11 @@ package com.example.cartasvshumanidad;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,13 @@ public class Login extends AppCompatActivity {
     TextView password;
     String strcorreo;
     String strpassword;
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+
+    TextView tvTextoNombre;
+    Button btnNombre;
+    EditText txtNombre;
+    String PlayerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +43,37 @@ public class Login extends AppCompatActivity {
         password = (EditText) findViewById(R.id.txtPassword);
 
     }
+
+
+    public void createNewContactDialog(){
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.popul_nick, null);
+        this.tvTextoNombre=(TextView) contactPopupView.findViewById(R.id.tvEligeNick);
+        this.btnNombre=(Button) contactPopupView.findViewById(R.id.btnNombre);
+        this.txtNombre=(EditText) contactPopupView.findViewById(R.id.txtNombre);
+
+        this.dialogBuilder.setView(contactPopupView);
+        this.dialog = dialogBuilder.create();
+        dialog.show();
+
+        this.btnNombre.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                PlayerName = txtNombre.getText().toString();
+
+                Intent intent = new Intent(Login.this, News.class);
+                intent.putExtra("correo", strcorreo);
+                intent.putExtra("nick", PlayerName);
+                intent.putExtra("pass", strpassword);
+                startActivity(intent);
+                //Finalizar Activity
+                finish();
+
+                dialog.dismiss();
+            }
+        });
+    }
+
 
     public void registrarme(View view)
     {
@@ -79,12 +119,7 @@ public class Login extends AppCompatActivity {
                 if (task.isSuccessful()){
                     //En caso de no error invocamos el método inicio
 
-                    Intent intent = new Intent(Login.this, News.class);
-                    intent.putExtra("correo", strcorreo);
-                    intent.putExtra("pass", strpassword);
-                    startActivity(intent);
-                    //Finalizar Activity
-                    finish();
+                    createNewContactDialog();
 
                 }
                 //En caso de error lanzo el toast indicando lo sucedido

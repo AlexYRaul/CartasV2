@@ -41,7 +41,7 @@ public class Lobby extends AppCompatActivity {
 
     private ListView listView;
     List<String> roomsList;
-    String playerName="";
+    String playerName;
     String roomName="";
     FirebaseDatabase dataBase;
     DatabaseReference roomRef;
@@ -55,6 +55,7 @@ public class Lobby extends AppCompatActivity {
 
         datos = getIntent().getExtras();
         correo = datos.getString("correo");
+        playerName = datos.getString("nick");
         pass = datos.getString("pass");
 
         dataBase = FirebaseDatabase.getInstance();
@@ -82,6 +83,7 @@ public class Lobby extends AppCompatActivity {
     {
         Intent i= new Intent(this,News.class);
         i.putExtra("correo", correo);
+        i.putExtra("nick", playerName);
         i.putExtra("pass", pass);
         startActivity(i);
     }
@@ -89,6 +91,7 @@ public class Lobby extends AppCompatActivity {
     {
         Intent i= new Intent(this,Profile.class);
         i.putExtra("correo", correo);
+        i.putExtra("nick", playerName);
         i.putExtra("pass", pass);
         startActivity(i);
     }

@@ -24,6 +24,7 @@ public class News extends AppCompatActivity {
     Bundle datos;
     String strcorreo;
     String strpassword;
+    String PlayerName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class News extends AppCompatActivity {
 
         datos=getIntent().getExtras();
         strcorreo=datos.getString("correo");
+        PlayerName=datos.getString("nick");
         strpassword=datos.getString("pass");
 
         //Creamos la instancia al Firestore de la base de daos de Firebase
@@ -67,6 +69,7 @@ public class News extends AppCompatActivity {
     {
         Intent i= new Intent(this,Profile.class);
         i.putExtra("correo", strcorreo);
+        i.putExtra("nick", PlayerName);
         i.putExtra("pass", strpassword);
         startActivity(i);
     }
@@ -75,6 +78,7 @@ public class News extends AppCompatActivity {
     {
         Intent i= new Intent(this,Lobby.class);
         i.putExtra("correo", strcorreo);
+        i.putExtra("nick", PlayerName);
         i.putExtra("pass", strpassword);
         startActivity(i);
     }
