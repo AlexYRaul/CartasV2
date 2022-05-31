@@ -39,8 +39,6 @@ public class Lobby extends AppCompatActivity {
     private String pass;
     Bundle datos;
 
-
-
     private ListView listView;
     List<String> roomsList;
     String playerName="";
