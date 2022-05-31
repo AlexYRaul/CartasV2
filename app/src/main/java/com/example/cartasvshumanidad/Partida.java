@@ -40,4 +40,5 @@ public class Partida {
         return "Partida{" + "idPartida=" + idPartida + ", usuario=" + usuario + '}';
     }
 
+
 }
