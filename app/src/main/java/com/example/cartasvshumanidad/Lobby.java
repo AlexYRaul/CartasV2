@@ -112,6 +112,7 @@ public class Lobby extends AppCompatActivity {
         this.dialog = dialogBuilder.create();
         dialog.show();
 
+
         this.aceptar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

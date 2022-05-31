@@ -64,7 +64,7 @@ public class Juego extends AppCompatActivity {
         });
 
         messageRef = dataBase.getReference("rooms/" + roomName + "/message");
-        message = role + "Poked!";
+        message = role + ":Poked!";
         messageRef.setValue(message);
         addRoomEventListener();
 
@@ -74,15 +74,15 @@ public class Juego extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(role.equals("host")){
-                        if (snapshot.getValue(String.class).contains("guest")){
+                        if (snapshot.getValue(String.class).contains("guest:")){
                             button.setEnabled(true);
                             Toast.makeText(Juego.this, "" +
-                                    snapshot.getValue(String.class).replace("guest", ""), Toast.LENGTH_SHORT).show();
+                                    snapshot.getValue(String.class).replace("guest:", ""), Toast.LENGTH_SHORT).show();
                         } else {
-                            if (snapshot.getValue(String.class).contains("host")){
+                            if (snapshot.getValue(String.class).contains("host:")){
                                 button.setEnabled(true);
                                 Toast.makeText(Juego.this, "" +
-                                        snapshot.getValue(String.class).replace("host", ""), Toast.LENGTH_SHORT).show();
+                                        snapshot.getValue(String.class).replace("host:", ""), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
