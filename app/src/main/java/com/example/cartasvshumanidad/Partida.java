@@ -39,4 +39,5 @@ public class Partida {
     public String toString() {
         return "Partida{" + "idPartida=" + idPartida + ", usuario=" + usuario + '}';
     }
+
 }
