@@ -23,13 +23,7 @@ public class Login extends AppCompatActivity {
     TextView password;
     String strcorreo;
     String strpassword;
-    private AlertDialog.Builder dialogBuilder;
-    private AlertDialog dialog;
-
-    TextView tvTextoNombre;
-    Button btnNombre;
-    EditText txtNombre;
-    String PlayerName;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,36 +36,6 @@ public class Login extends AppCompatActivity {
         correo = (EditText) findViewById(R.id.txtEmail);
         password = (EditText) findViewById(R.id.txtPassword);
 
-    }
-
-
-    public void createNewContactDialog(){
-        dialogBuilder = new AlertDialog.Builder(this);
-        final View contactPopupView = getLayoutInflater().inflate(R.layout.popul_nick, null);
-        this.tvTextoNombre=(TextView) contactPopupView.findViewById(R.id.tvEligeNick);
-        this.btnNombre=(Button) contactPopupView.findViewById(R.id.btnNombre);
-        this.txtNombre=(EditText) contactPopupView.findViewById(R.id.txtNombre);
-
-        this.dialogBuilder.setView(contactPopupView);
-        this.dialog = dialogBuilder.create();
-        dialog.show();
-
-        this.btnNombre.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                PlayerName = txtNombre.getText().toString();
-
-                Intent intent = new Intent(Login.this, News.class);
-                intent.putExtra("correo", strcorreo);
-                intent.putExtra("nick", PlayerName);
-                intent.putExtra("pass", strpassword);
-                startActivity(intent);
-                //Finalizar Activity
-                finish();
-
-                dialog.dismiss();
-            }
-        });
     }
 
 
@@ -118,9 +82,12 @@ public class Login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     //En caso de no error invocamos el método inicio
-
-                    createNewContactDialog();
-
+                    Intent intent = new Intent(Login.this, News.class);
+                    intent.putExtra("correo", strcorreo);
+                    intent.putExtra("pass", strpassword);
+                    startActivity(intent);
+                    //Finalizar Activity
+                    finish();
                 }
                 //En caso de error lanzo el toast indicando lo sucedido
                 else {
