@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,23 +31,16 @@ import java.util.List;
 
 public class Lobby extends AppCompatActivity {
 
-    private AlertDialog.Builder dialogBuilder;
-    private AlertDialog dialog;
-    private TextView tvPregunta;
-    private Button aceptar;
-    private Button cancel;
     private String correo;
     private String pass;
     Bundle datos;
 
-    private ListView listView;
-    List<String> roomsList;
+    EditText editText;
+    Button button;
     String playerName;
-    String roomName="";
-    FirebaseDatabase dataBase;
-    DatabaseReference roomRef;
-    DatabaseReference roomsRef;
 
+    FirebaseDatabase database;
+    DatabaseReference playerRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,38 +49,73 @@ public class Lobby extends AppCompatActivity {
 
         datos = getIntent().getExtras();
         correo = datos.getString("correo");
-        playerName = datos.getString("nick");
         pass = datos.getString("pass");
 
-        dataBase = FirebaseDatabase.getInstance();
-        SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-        playerName = preferences.getString("playerName", "");
-        roomName = playerName;
+        editText = findViewById(R.id.editText);
+        button = findViewById(R.id.button);
+        database = FirebaseDatabase.getInstance();
 
+        SharedPreferences preferences = getSharedPreferences("PREFS",0);
+        playerName = preferences.getString("playerName","");
 
-}
+        if(!playerName.equals("")){
+            playerRef = database.getReference("players/" + playerName);
+            addEventListener();
+            playerRef.setValue("");
+        }
 
-    public void news (View view)
-    {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                playerName = editText.getText().toString();
+                editText.setText("");
+                if (!playerName.equals("")){
+                    button.setText("LOGGING IN");
+                    button.setEnabled(false);
+                    playerRef = database.getReference("players/" + playerName);
+                    addEventListener();
+                    playerRef.setValue("");
+                }
+            }
+        });
+    }
+
+    private void addEventListener (){
+        playerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(!playerName.equals("")){
+                    SharedPreferences preferences = getSharedPreferences("PREFS",0);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("playerName", playerName);
+                    editor.apply();
+
+                    startActivity(new Intent(getApplicationContext(), com.example.cartasvshumanidad.Arena.class));
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                button.setText("LOG IN");
+                button.setEnabled(true);
+                Toast.makeText(Lobby.this,"Error!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void news (View view) {
         Intent i= new Intent(this,News.class);
         i.putExtra("correo", correo);
         i.putExtra("nick", playerName);
         i.putExtra("pass", pass);
         startActivity(i);
     }
-    public void profile(View view)
-    {
+    public void profile(View view) {
         Intent i= new Intent(this,Profile.class);
         i.putExtra("correo", correo);
         i.putExtra("nick", playerName);
         i.putExtra("pass", pass);
-        startActivity(i);
-    }
-
-
-    public void jugar (View view)
-    {
-        Intent i= new Intent(this,CrearPartida.class);
         startActivity(i);
     }
 

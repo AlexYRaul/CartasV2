@@ -52,21 +52,65 @@
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvEligeNick"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/style_border_editext3"
+        android:ems="10"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:hint="Nick"
+        android:inputType="textPersonName"
+        android:textColor="@color/LetraSecundaria"
+        android:textColorHint="@color/LetraSecundaria" />
+
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/style_border_editext"
+        android:backgroundTint="@color/LetraPrincipal"
+        android:text="LOG IN" />
+
+    <TextView
+        android:id="@+id/tvEligeNick"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Introduce el Nick que seas utilizar."
+        android:textColor="@color/LetraPrincipal"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="366dp"
-        android:layout_marginEnd="165dp"
-        android:layout_marginBottom="317dp"
-        android:background="@color/LetraPrincipal"
-        android:onClick="jugar"
-        android:text="Jugar"
-        tools:ignore="OnClick" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/logo" />
 
 </RelativeLayout>

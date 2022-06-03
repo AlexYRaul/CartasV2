@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
     TextView password;
     String strcorreo;
     String strpassword;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
