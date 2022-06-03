@@ -22,13 +22,15 @@ public class Juego extends AppCompatActivity {
 
     int tiempo = 30000;
     TextView tvTiempo;
+
     Button button;
-    String playerName ="";
+    String playerName = "";
     String roomName = "";
-    String role  = "";
+    String role = "";
     String message = "";
-    FirebaseDatabase dataBase;
+    FirebaseDatabase database;
     DatabaseReference messageRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,22 +40,23 @@ public class Juego extends AppCompatActivity {
         tvTiempo = findViewById(R.id.tvTiempo);
         IniciarCuentaAtras();
 
-        button = findViewById(R.id.btnPrueba);
+        button = findViewById(R.id.button);
         button.setEnabled(false);
-        dataBase = FirebaseDatabase.getInstance();
+
+        database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         playerName = preferences.getString("playerName", "");
 
         Bundle extras = getIntent().getExtras();
-        if(extras != null){
+        if (extras != null) {
             roomName = extras.getString("roomName");
-            if (roomName.equals(playerName)){
+            if (roomName.equals(playerName)) {
                 role = "host";
             } else {
-                role ="guest";
+                role = "guest";
             }
-        }
 
+        }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,44 +65,44 @@ public class Juego extends AppCompatActivity {
                 messageRef.setValue(message);
             }
         });
-
-        messageRef = dataBase.getReference("rooms/" + roomName + "/message");
+        messageRef = database.getReference("rooms/" + roomName + "/message");
         message = role + ":Poked!";
         messageRef.setValue(message);
         addRoomEventListener();
-
     }
-        private void addRoomEventListener(){
-            messageRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(role.equals("host")){
-                        if (snapshot.getValue(String.class).contains("guest:")){
-                            button.setEnabled(true);
-                            Toast.makeText(Juego.this, "" +
-                                    snapshot.getValue(String.class).replace("guest:", ""), Toast.LENGTH_SHORT).show();
-                        } else {
-                            if (snapshot.getValue(String.class).contains("host:")){
-                                button.setEnabled(true);
-                                Toast.makeText(Juego.this, "" +
-                                        snapshot.getValue(String.class).replace("host:", ""), Toast.LENGTH_SHORT).show();
-                        }
+
+    private void addRoomEventListener() {
+        messageRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (role.equals("host")) {
+                    if (snapshot.getValue(String.class).contains("guest:")) {
+                        button.setEnabled(true);
+                        Toast.makeText(Juego.this, "" +
+                                snapshot.getValue(String.class).replace("guest:", ""), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    if (snapshot.getValue(String.class).contains("host:")) {
+                        button.setEnabled(true);
+                        Toast.makeText(Juego.this, "" +
+                                snapshot.getValue(String.class).replace("host:", ""), Toast.LENGTH_SHORT).show();
                     }
                 }
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    messageRef.setValue(message);
-                }
-            });
-        }
+            }
 
-    private void IniciarCuentaAtras(){
-        new CountDownTimer(tiempo, 1000){
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                messageRef.setValue(message);
+            }
+        });
+
+    }
+    private void IniciarCuentaAtras () {
+        new CountDownTimer(tiempo, 1000) {
 
             @Override
             public void onTick(long l) {
-                long segundosPendientes=l/1000;
+                long segundosPendientes = l / 1000;
                 tvTiempo.setText(segundosPendientes + "s");
             }
 

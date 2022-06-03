@@ -63,20 +63,7 @@ public class Lobby extends AppCompatActivity {
         playerName = preferences.getString("playerName", "");
         roomName = playerName;
 
-        listView = findViewById(R.id.lvListaPartidas);
-        roomsList = new ArrayList<>();
 
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                roomName = roomsList.get(position);
-                roomRef = dataBase.getReference("rooms/" + roomName + "/player2");
-                addRoomEventListener();
-                roomRef.setValue(playerName);
-            }
-        });
-        addRoomsEventListener();
 }
 
     public void news (View view)
@@ -96,85 +83,11 @@ public class Lobby extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void CrearPartida(View view)
+
+    public void jugar (View view)
     {
-        createNewContactDialog();
-    }
-
-    public void createNewContactDialog(){
-        dialogBuilder = new AlertDialog.Builder(this);
-        final View contactPopupView = getLayoutInflater().inflate(R.layout.popup, null);
-        this.tvPregunta=(TextView) contactPopupView.findViewById(R.id.tvPregunta);
-        this.aceptar=(Button) contactPopupView.findViewById(R.id.btnPopUpCrear);
-        this.cancel=(Button) contactPopupView.findViewById(R.id.btnPopUpCancelar);
-
-        this.dialogBuilder.setView(contactPopupView);
-        this.dialog = dialogBuilder.create();
-        dialog.show();
-
-
-        this.aceptar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Toast.makeText(Lobby.this, "Creando partida..", Toast.LENGTH_SHORT).show();
-                //crear.setEnabled(false);
-                roomName = playerName;
-                roomRef=dataBase.getReference("rooms/"+roomName+"/player1");
-                addRoomEventListener();
-                roomRef.setValue(playerName);
-                dialog.dismiss();
-            }
-        });
-
-        this.cancel.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-                dialog.dismiss();
-            }
-        });
-    }
-
-
-    private void addRoomEventListener(){
-        roomRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Toast.makeText(Lobby.this, "Uniendose a una partida..", Toast.LENGTH_SHORT).show();
-                //crear.setEnabled(true);
-                Intent i= new Intent(getApplicationContext(),Juego.class);
-                i.putExtra("roomName", roomName);
-                startActivity(i);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Lobby.this, "Uniendose a una partida..", Toast.LENGTH_SHORT).show();
-               // crear.setEnabled(true);
-                Toast.makeText(Lobby.this, "ERROR!", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void addRoomsEventListener(){
-        roomsRef= dataBase.getReference("rooms");
-        roomsRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                roomsList.clear();
-                Iterable<DataSnapshot> rooms = dataSnapshot.getChildren();
-                for(DataSnapshot snapshot : rooms){
-                    roomsList.add(snapshot.getKey());
-
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(Lobby.this, android.R.layout.simple_list_item_1, roomsList);
-                    listView.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        Intent i= new Intent(this,CrearPartida.class);
+        startActivity(i);
     }
 
 }

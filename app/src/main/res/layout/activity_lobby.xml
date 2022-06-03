@@ -51,32 +51,22 @@
         </LinearLayout>
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    <ListView
-        android:id="@+id/lvListaPartidas"
-        android:layout_width="match_parent"
-        android:layout_height="655dp"
-        android:layout_above="@+id/nav"
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="206dp"
+        android:layout_marginTop="371dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="312dp"
         android:background="@color/LetraPrincipal"
-        android:cacheColorHint="#FF5722" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fbtnCrear"
-        android:layout_width="wrap_content"
-        android:layout_height="439dp"
-        android:layout_above="@+id/nav"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="24dp"
-        android:onClick="CrearPartida"
-        android:src="@drawable/add" />
+        android:onClick="jugar"
+        android:text="Jugar"
+        tools:ignore="OnClick" />
 
 </RelativeLayout>
