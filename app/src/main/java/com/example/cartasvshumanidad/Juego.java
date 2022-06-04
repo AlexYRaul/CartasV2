@@ -73,12 +73,17 @@ public class Juego extends AppCompatActivity {
         rellenarArrayBlancas();
 
         cartaNegra = findViewById(R.id.tvFrase);
+        cartaNegra.setText(strCartaNegra);
         carta1 = findViewById(R.id.tvCarta1);
+        carta1.setText(strCarta1);
         carta2 = findViewById(R.id.tvCarta2);
+        carta2.setText(strCarta2);
         carta3 = findViewById(R.id.tvCarta3);
+        carta3.setText(strCarta3);
         carta4 = findViewById(R.id.tvCarta4);
+        carta4.setText(strCarta4);
         carta5 = findViewById(R.id.tvCarta5);
-
+        carta5.setText(strCarta5);
 
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
@@ -169,12 +174,7 @@ public class Juego extends AppCompatActivity {
         strCarta3=cartasBlancas[id_carta3];
         strCarta4=cartasBlancas[id_carta4];
         strCarta5=cartasBlancas[id_carta5];
-
-        carta1.setText(strCarta1);
-        carta2.setText(strCarta2);
-        carta3.setText(strCarta3);
-        carta4.setText(strCarta4);
-        carta5.setText(strCarta5);
+        
     }
 
     public void rellenarArrayNegras(){
@@ -202,7 +202,6 @@ public class Juego extends AppCompatActivity {
 
         id_cartaNegra = (int) (Math.random()*20+0);
         strCartaNegra = cartasNegras[id_cartaNegra];
-        cartaNegra.setText(strCartaNegra);
     }
 
 
