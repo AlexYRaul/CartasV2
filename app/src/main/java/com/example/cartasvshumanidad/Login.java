@@ -38,12 +38,14 @@ public class Login extends AppCompatActivity {
 
     }
 
-
+    // Este metodo sireve para ir a la activity de Registro
     public void registrarme(View view)
     {
         Intent i= new Intent(this,Registro.class);
         startActivity(i);
     }
+
+    //Este metodo sirve para pasar a la activity de Recuperar contraseña
     public void RecuperarPassword(View view)
     {
         Intent i= new Intent(this,RecuperarPass.class);

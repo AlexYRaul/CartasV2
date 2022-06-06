@@ -18,11 +18,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class CrearPartida extends AppCompatActivity {
-
+    //Atributos iniciales de la clase
     EditText editText;
     Button button;
     String playerName;
-
+    //Atributos que se utilizaran para hacer referencia a la base de datos de Firebase
     FirebaseDatabase database;
     DatabaseReference playerRef;
 
@@ -31,10 +31,10 @@ public class CrearPartida extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_partida);
 
-
+        //Relacionamos los atributos con sus respecivos editText y Button que estan en el Layout
         editText = findViewById(R.id.editText);
         button = findViewById(R.id.button);
-
+        //Instanciamos la base de datos de Firebase
         database = FirebaseDatabase.getInstance();
 
         SharedPreferences preferences = getSharedPreferences("PREFS",0);
@@ -46,6 +46,7 @@ public class CrearPartida extends AppCompatActivity {
             playerRef.setValue("");
         }
 
+        //Cada vez que el usuario pase por este metodo se creara un registro en la base de datos.
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -62,7 +63,7 @@ public class CrearPartida extends AppCompatActivity {
         });
     }
 
-
+    //Este metedo es un evento, sirve para recoger el nombre del usuario para la partida
     private void addEventListener (){
         playerRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -72,12 +73,12 @@ public class CrearPartida extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("playerName", playerName);
                     editor.apply();
-
+                    //Una vez recogidos los datos de arriba se pasa a la activity Arena.
                     startActivity(new Intent(getApplicationContext(), com.example.cartasvshumanidad.Arena.class));
                     finish();
                 }
             }
-
+            //En caso de que no se cumpla el metodo anterior se mostara un mensaje de error mediante un Toast
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 button.setText("LOG IN");

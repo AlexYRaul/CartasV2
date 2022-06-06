@@ -28,11 +28,12 @@ public class Aviso extends AppCompatActivity {
                 Context context = getApplicationContext();
                 CharSequence text = "Bienvenido";
                 int duration = Toast.LENGTH_SHORT;
-
+                //Se crea un Toast para mostar un mensaje
                 Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                toast.show(); // Se muestra el mensaje
+                //Se pasa a la siguiente Activity
                 Intent intent=new Intent (Aviso.this,Login.class);
-                startActivity(intent);
+                startActivity(intent); //Se inicia la activity
                 finish();
             }
         },3000);
