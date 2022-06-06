@@ -68,7 +68,7 @@
             android:fontFamily="@font/acme"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="placeholder"
-            android:textColor="@color/black" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/tvCarta3"
@@ -108,7 +108,7 @@
             android:fontFamily="@font/acme"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="placeholder"
-            android:textColor="@color/black" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/tvCarta5"
@@ -121,7 +121,7 @@
             android:fontFamily="@font/acme"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="placeholder"
-            android:textColor="@color/black" />
+            android:textColor="#000000" />
     </LinearLayout>
 
     <LinearLayout
@@ -144,21 +144,9 @@
             android:backgroundTint="#222121"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="placeholder"
+            android:textColor="#FFFFFF"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="140dp"
-        android:layout_height="92dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="119dp"
-        android:layout_marginEnd="581dp"
-        android:layout_marginBottom="200dp"
-        android:text="Button" />
+    </LinearLayout>
 
 </RelativeLayout>

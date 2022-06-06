@@ -3,8 +3,10 @@ package com.example.cartasvshumanidad;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -25,11 +27,10 @@ public class Juego extends AppCompatActivity {
     int tiempo = 30000;
     TextView tvTiempo;
 
-    Button button;
     String playerName = "";
     String roomName = "";
     String role = "";
-    String message = "";
+    String message;
     FirebaseDatabase database;
     DatabaseReference messageRef;
 
@@ -39,6 +40,12 @@ public class Juego extends AppCompatActivity {
     String strCarta4;
     String strCarta5;
     String strCartaNegra;
+
+    boolean recarganegra=true;
+    boolean envio=false;
+    boolean respuestas=false;
+
+    String respuesta="";
 
     TextView carta1;
     TextView carta2;
@@ -66,14 +73,14 @@ public class Juego extends AppCompatActivity {
         tvTiempo = findViewById(R.id.tvTiempo);
         IniciarCuentaAtras();
 
-        button = findViewById(R.id.button);
-        button.setEnabled(false);
-
-        rellenarArrayNegras();
-        rellenarArrayBlancas();
+        if(recarganegra==true){
+            rellenarArrayNegras();
+            rellenarArrayBlancas();
+        }
 
         cartaNegra = findViewById(R.id.tvFrase);
         cartaNegra.setText(strCartaNegra);
+        cartaNegra.setTextColor(Color.parseColor("#000000"));
         carta1 = findViewById(R.id.tvCarta1);
         carta1.setText(strCarta1);
         carta2 = findViewById(R.id.tvCarta2);
@@ -99,18 +106,105 @@ public class Juego extends AppCompatActivity {
             }
 
         }
-        button.setOnClickListener(new View.OnClickListener() {
+        carta1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                button.setEnabled(false);
-                message = role + ":Poked!";
+                carta1.setTextColor(Color.parseColor("#FFFFFF"));
+                carta2.setTextColor(Color.parseColor("#000000"));
+                carta3.setTextColor(Color.parseColor("#000000"));
+                carta4.setTextColor(Color.parseColor("#000000"));
+                carta5.setTextColor(Color.parseColor("#000000"));
+                carta1.setEnabled(false);
+                message = role +": "+ strCarta1;
                 messageRef.setValue(message);
+                envio=true;
+                RespuestasDadas();
             }
         });
+        carta2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                carta2.setTextColor(Color.parseColor("#FFFFFF"));
+                carta1.setTextColor(Color.parseColor("#000000"));
+                carta3.setTextColor(Color.parseColor("#000000"));
+                carta4.setTextColor(Color.parseColor("#000000"));
+                carta5.setTextColor(Color.parseColor("#000000"));
+                carta2.setEnabled(false);
+                message = role +": "+ strCarta2;
+                messageRef.setValue(message);
+                envio=true;
+                RespuestasDadas();
+            }
+        });
+        carta3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                carta3.setTextColor(Color.parseColor("#FFFFFF"));
+                carta2.setTextColor(Color.parseColor("#000000"));
+                carta1.setTextColor(Color.parseColor("#000000"));
+                carta4.setTextColor(Color.parseColor("#000000"));
+                carta5.setTextColor(Color.parseColor("#000000"));
+                carta3.setEnabled(false);
+                message = role +": "+ strCarta3;
+                messageRef.setValue(message);
+                envio=true;
+                RespuestasDadas();
+            }
+        });
+        carta4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                carta4.setTextColor(Color.parseColor("#FFFFFF"));
+                carta2.setTextColor(Color.parseColor("#000000"));
+                carta3.setTextColor(Color.parseColor("#000000"));
+                carta1.setTextColor(Color.parseColor("#000000"));
+                carta5.setTextColor(Color.parseColor("#000000"));
+                carta4.setEnabled(false);
+                message = role +": "+ strCarta4;
+                messageRef.setValue(message);
+                envio=true;
+                RespuestasDadas();
+            }
+        });
+        carta5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                carta5.setTextColor(Color.parseColor("#FFFFFF"));
+                carta2.setTextColor(Color.parseColor("#000000"));
+                carta3.setTextColor(Color.parseColor("#000000"));
+                carta4.setTextColor(Color.parseColor("#000000"));
+                carta1.setTextColor(Color.parseColor("#000000"));
+                carta5.setEnabled(false);
+                message = role +": "+ strCarta5;
+                messageRef.setValue(message);
+                envio=true;
+                RespuestasDadas();
+            }
+        });
+
         messageRef = database.getReference("rooms/" + roomName + "/message");
-        message = role + ":Poked!";
+        if(role.equals("host")){
+            message = role+": ¡Jugador 1 se ha conectado! ";
+        }
+        if(role.equals("guest")){
+            message = role+": ¡Jugador 2 se ha conectado! ";
+        }
         messageRef.setValue(message);
+
+        if(role.equals("host")){
+            cartaNegra.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    cartaNegra.setEnabled(false);
+                    message = "negra: "+ strCartaNegra;
+                    messageRef.setValue(message);
+                    cartaNegra.setTextColor(Color.parseColor("#FFFFFF"));
+                }
+            });
+        }
+
         addRoomEventListener();
+
     }
 
     private void addRoomEventListener() {
@@ -119,15 +213,32 @@ public class Juego extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (role.equals("host")) {
                     if (snapshot.getValue(String.class).contains("guest:")) {
-                        button.setEnabled(true);
-                        Toast.makeText(Juego.this, "" +
-                                snapshot.getValue(String.class).replace("guest:", ""), Toast.LENGTH_SHORT).show();
+                        carta1.setEnabled(true);
+                        carta2.setEnabled(true);
+                        carta3.setEnabled(true);
+                        carta4.setEnabled(true);
+                        carta5.setEnabled(true);
+                        respuesta = snapshot.getValue(String.class).replace("guest:", "");
+
+                        respuestas=true;
+
                     }
                 } else {
                     if (snapshot.getValue(String.class).contains("host:")) {
-                        button.setEnabled(true);
-                        Toast.makeText(Juego.this, "" +
-                                snapshot.getValue(String.class).replace("host:", ""), Toast.LENGTH_SHORT).show();
+                        carta1.setEnabled(true);
+                        carta2.setEnabled(true);
+                        carta3.setEnabled(true);
+                        carta4.setEnabled(true);
+                        carta5.setEnabled(true);
+                        respuesta = snapshot.getValue(String.class).replace("host:", "");
+
+                        respuestas=true;
+
+                    }
+                    if(snapshot.getValue(String.class).contains("negra:")){
+                        strCartaNegra = snapshot.getValue(String.class).replace("negra:", "");
+                        cartaNegra.setText(strCartaNegra);
+                        cartaNegra.setTextColor(Color.parseColor("#FFFFFF"));
                     }
                 }
             }
@@ -137,7 +248,13 @@ public class Juego extends AppCompatActivity {
                 messageRef.setValue(message);
             }
         });
+    }
 
+    public void RespuestasDadas(){
+        if(envio==true && respuestas==true){
+            Intent intent = new Intent(Juego.this, ElegirGanador.class);
+            startActivity(intent);
+        }
     }
 
     public void rellenarArrayBlancas(){
@@ -174,7 +291,7 @@ public class Juego extends AppCompatActivity {
         strCarta3=cartasBlancas[id_carta3];
         strCarta4=cartasBlancas[id_carta4];
         strCarta5=cartasBlancas[id_carta5];
-        
+
     }
 
     public void rellenarArrayNegras(){
@@ -205,6 +322,7 @@ public class Juego extends AppCompatActivity {
     }
 
 
+    //
     private void IniciarCuentaAtras () {
         new CountDownTimer(tiempo, 1000) {
 

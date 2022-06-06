@@ -15,13 +15,13 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ElegirGanador"
+            android:exported="false" />
+        <activity
             android:name=".Arena"
             android:exported="false" />
         <activity
             android:name=".CrearPartida"
-            android:exported="false" />
-        <activity
-            android:name=".BorrarPerfilUsuario"
             android:exported="false" />
         <activity
             android:name=".Juego"
