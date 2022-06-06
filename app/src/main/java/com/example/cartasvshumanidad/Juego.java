@@ -24,6 +24,7 @@ import java.lang.reflect.Array;
 
 public class Juego extends AppCompatActivity {
 
+    //Inidico el tiempo con el que quiero que inicie el contador
     int tiempo = 30000;
     TextView tvTiempo;
 
@@ -54,6 +55,7 @@ public class Juego extends AppCompatActivity {
     TextView carta5;
     TextView cartaNegra;
 
+    //Estas variables contendrán un valor aleatorio y segun ellos se les asignará un valor a sus repectivas cartas
     int id_carta1;
     int id_carta2;
     int id_carta3;
@@ -61,6 +63,7 @@ public class Juego extends AppCompatActivity {
     int id_carta5;
     int id_cartaNegra;
 
+    //Creo 2 array en los que se almacenaran las cartas blancas y negras
     String cartasBlancas [] = new String[21];
     String cartasNegras [] = new String[21];
 
@@ -70,17 +73,20 @@ public class Juego extends AppCompatActivity {
         setContentView(R.layout.activity_juego);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+        //Sincronizo el textview del tiempo con la variable que contiene el valor y lanzo el metodo de cuenta atras
         tvTiempo = findViewById(R.id.tvTiempo);
         IniciarCuentaAtras();
 
+        //Mando ejecutarse los metodos que rellenan los array con las cartas
         if(recarganegra==true){
             rellenarArrayNegras();
             rellenarArrayBlancas();
         }
 
+        //Sincronizo las cartas con las variables Textview
         cartaNegra = findViewById(R.id.tvFrase);
         cartaNegra.setText(strCartaNegra);
-        cartaNegra.setTextColor(Color.parseColor("#000000"));
+        cartaNegra.setTextColor(Color.parseColor("#222121"));
         carta1 = findViewById(R.id.tvCarta1);
         carta1.setText(strCarta1);
         carta2 = findViewById(R.id.tvCarta2);
@@ -92,6 +98,7 @@ public class Juego extends AppCompatActivity {
         carta5 = findViewById(R.id.tvCarta5);
         carta5.setText(strCarta5);
 
+        //Crea la sala y otorga un rol a cada usuario
         database = FirebaseDatabase.getInstance();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         playerName = preferences.getString("playerName", "");
@@ -106,6 +113,7 @@ public class Juego extends AppCompatActivity {
             }
 
         }
+        //Cada carta blanca tiene un Onclick que hace resaltar dicha carta, resetea el resto y pasa al otro jugador tu carta
         carta1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,6 +190,7 @@ public class Juego extends AppCompatActivity {
             }
         });
 
+        //Mustra que usuario se ha conectado
         messageRef = database.getReference("rooms/" + roomName + "/message");
         if(role.equals("host")){
             message = role+": ¡Jugador 1 se ha conectado! ";
@@ -191,6 +200,7 @@ public class Juego extends AppCompatActivity {
         }
         messageRef.setValue(message);
 
+        //Si eres el usuario host crea un onclick sobre la carta negra y pasa dicha carta al jugador 2 para que tengan la misma
         if(role.equals("host")){
             cartaNegra.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -207,6 +217,7 @@ public class Juego extends AppCompatActivity {
 
     }
 
+    //Captura la respuesta del otro usuario y lo amcena en la variable respuesta
     private void addRoomEventListener() {
         messageRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -250,6 +261,7 @@ public class Juego extends AppCompatActivity {
         });
     }
 
+    //Comprueba que ambos jugadores hayan respondido
     public void RespuestasDadas(){
         if(envio==true && respuestas==true){
             Intent intent = new Intent(Juego.this, ElegirGanador.class);
@@ -257,6 +269,7 @@ public class Juego extends AppCompatActivity {
         }
     }
 
+    //lleno el array "rellenarArrayBlancas" con los textos de algunas de las cartas, genero un numero aleatorío que será el que elija que carta tocará
     public void rellenarArrayBlancas(){
         cartasBlancas[0] = "Barack Obama";
         cartasBlancas[1] = "Txeroki";
@@ -294,6 +307,7 @@ public class Juego extends AppCompatActivity {
 
     }
 
+    //lleno el array "rellenarArrayNegras" con los textos de algunas de las cartas, genero un numero aleatorío que será el que elija que carta tocará
     public void rellenarArrayNegras(){
         cartasNegras[0] = "Bebo para olvidar _______.";
         cartasNegras[1] = "_______: Bueno hasta la ultima gota.";
@@ -322,7 +336,7 @@ public class Juego extends AppCompatActivity {
     }
 
 
-    //
+    //Metodo que crea una cuenta atras desde que se entra en la activity
     private void IniciarCuentaAtras () {
         new CountDownTimer(tiempo, 1000) {
 

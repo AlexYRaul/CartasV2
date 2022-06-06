@@ -58,12 +58,14 @@ public class Lobby extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("PREFS",0);
         playerName = preferences.getString("playerName","");
 
+        //Compruebo que el nombre del usuario no está vacio y creo en la base de datos el player con dicho nombre
         if(!playerName.equals("")){
             playerRef = database.getReference("players/" + playerName);
             addEventListener();
             playerRef.setValue("");
         }
 
+        //Doy al editText el valor del nombre del usuario, compruebo que no esta vacio y hago referencia en la base de datos al usuario con dicho nombre
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -80,6 +82,7 @@ public class Lobby extends AppCompatActivity {
         });
     }
 
+    //Recuerdo eñ nombre de usuario y me logueo con el
     private void addEventListener (){
         playerRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -104,6 +107,7 @@ public class Lobby extends AppCompatActivity {
         });
     }
 
+    //Cambio de activity a News pasandole los valores del usuario
     public void news (View view) {
         Intent i= new Intent(this,News.class);
         i.putExtra("correo", correo);
@@ -111,6 +115,7 @@ public class Lobby extends AppCompatActivity {
         i.putExtra("pass", pass);
         startActivity(i);
     }
+    //Cambio de activity a Profile pasandole los valores del usuario
     public void profile(View view) {
         Intent i= new Intent(this,Profile.class);
         i.putExtra("correo", correo);
