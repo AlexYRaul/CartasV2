@@ -34,7 +34,7 @@ public class Juego extends AppCompatActivity {
     String message;
     FirebaseDatabase database;
     DatabaseReference messageRef;
-
+    DatabaseReference databaseReference;
     String strCarta1;
     String strCarta2;
     String strCarta3;
@@ -100,6 +100,8 @@ public class Juego extends AppCompatActivity {
 
         //Crea la sala y otorga un rol a cada usuario
         database = FirebaseDatabase.getInstance();
+        messageRef = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         playerName = preferences.getString("playerName", "");
 
@@ -337,10 +339,12 @@ public class Juego extends AppCompatActivity {
 
 
     public void SalirPartida (View view){
-        messageRef.child("rooms").child(roomName).removeValue();
-        Intent i= new Intent(this,Arena.class);
+        String nombre = roomName;
+        databaseReference.child("rooms").child(nombre).removeValue();
+        Intent i= new Intent(this,CrearPartida.class);
         startActivity(i);
     }
+
 
     //Metodo que crea una cuenta atras desde que se entra en la activity
     private void IniciarCuentaAtras () {
