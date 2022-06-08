@@ -336,6 +336,12 @@ public class Juego extends AppCompatActivity {
     }
 
 
+    public void SalirPartida (View view){
+        messageRef.child("rooms").child(roomName).removeValue();
+        Intent i= new Intent(this,Arena.class);
+        startActivity(i);
+    }
+
     //Metodo que crea una cuenta atras desde que se entra en la activity
     private void IniciarCuentaAtras () {
         new CountDownTimer(tiempo, 1000) {
